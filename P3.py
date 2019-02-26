@@ -48,9 +48,6 @@ cnt4 = 0
 cnt5 = 0
 
 
-
-
-
 ## this goes through the lines, prints and counts them. 
 for line in log:
     #print (line)
