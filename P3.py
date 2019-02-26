@@ -3,8 +3,7 @@ import re
 ##urlretrieve ('https://s3.amazonaws.com/tcmg476/http_access_log', 'awslog.txt')
 
 linenum = 0 
-##months = ["error", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
-log = open("testlog.txt" , "r")
+log = open("awslog.txt" , "r")
 
 janlog = open("janlog.txt", "w+")
 #janlog.close()
@@ -53,6 +52,7 @@ for line in log:
     #print (line)
     
     
+    #counts the month, and writes them to their own file
     if re.search(("([a-z]+)( - )[a-z.-]+( \[)(..\/Oct\/[0-9:]+)( [0-9-]+\])( .[a-zA-Z]+ )([a-z0-9.]+)( [a-zA-Z0-9./]+. )([0-9]..)( [0-9-]+)"), line):
         #print (line)
         octnum += 1
@@ -114,6 +114,7 @@ for line in log:
         sepnum+= 1
         seplog.write(line)
         
+        #counts the error codes
     if re.search(("([a-z]+)( - )[a-z.-]+( \[)(..\/...\/[0-9:]+)( [0-9-]+\])( .[a-zA-Z]+ )([a-z0-9.]+)( [a-zA-Z0-9./]+. )(3[0-9]+)( [0-9-]+)"), line): 
         cnt3 += 1
             
@@ -130,18 +131,18 @@ for line in log:
     #linenum = linenum + 1
     #print (linenum)
     
-print ("oct num =" , octnum)
-print ("nov num =" , novnum)
-print ("dec num =" , decnum)
-print ("jan num =" , jannum)
-print ("feb num =" , febnum)
-print ("mar num =" , marnum)
-print ("apr num =" , aprnum)
-print ("may num =" , maynum)
-print ("jun num =" , junnum)
-print ("jul num =" , julnum)
-print ("aug num =" , augnum)
-print ("sep num =" , sepnum)
+print ("October has " , octnum, " log entries.")
+print ("November has " , novnum, " log entries.")
+print ("December has " , decnum, " log entries.")
+print ("January has " , jannum, " log entries.")
+print ("Febuary has " , febnum, " log entries.")
+print ("March has " , marnum, " log entries.")
+print ("April has " , aprnum, " log entries.")
+print ("May has " , maynum, " log entries.")
+print ("June has " , junnum, " log entries.")
+print ("July has " , julnum, " log entries.")
+print ("August has " , augnum, " log entries.")
+print ("September has " , sepnum, " log entries.")
 
 janlog.close()
 feblog.close()
@@ -159,3 +160,4 @@ declog.close()
 print ("there are ", cnt3, " 3XX errors")
 print ("there are ", cnt4, " 4XX errors")
 print ("there are ", cnt5, " 5XX errors")
+
