@@ -42,6 +42,10 @@ junnum = 0
 julnum = 0
 augnum = 0
 sepnum = 0
+cnt3 = 0
+cnt4 = 0
+cnt5 = 0
+
 
 
 ## this goes through the lines, prints and counts them. 
@@ -50,71 +54,81 @@ for line in log:
     
     
     if re.search(("([a-z]+)( - )[a-z.-]+( \[)(..\/Oct\/[0-9:]+)( [0-9-]+\])( .[a-zA-Z]+ )([a-z0-9.]+)( [a-zA-Z0-9./]+. )([0-9]..)( [0-9-]+)"), line):
-        print (line)
+        #print (line)
         octnum += 1
         octlog.write(line)
         
     if re.search(("([a-z]+)( - )[a-z.-]+( \[)(..\/Nov\/[0-9:]+)( [0-9-]+\])( .[a-zA-Z]+ )([a-z0-9.]+)( [a-zA-Z0-9./]+. )([0-9]..)( [0-9-]+)"), line):
-        print (line)
+        #print (line)
         novnum += 1
         novlog.write(line)
         
     if re.search(("([a-z]+)( - )[a-z.-]+( \[)(..\/Dec\/[0-9:]+)( [0-9-]+\])( .[a-zA-Z]+ )([a-z0-9.]+)( [a-zA-Z0-9./]+. )([0-9]..)( [0-9-]+)"), line):
-        print (line)
+        #print (line)
         decnum += 1  
         declog.write(line)
         
     if re.search(("([a-z]+)( - )[a-z.-]+( \[)(..\/Jan\/[0-9:]+)( [0-9-]+\])( .[a-zA-Z]+ )([a-z0-9.]+)( [a-zA-Z0-9./]+. )([0-9]..)( [0-9-]+)"), line):
-        print (line)
+        #print (line)
         jannum += 1 
         janlog.write(line)
         
     if re.search(("([a-z]+)( - )[a-z.-]+( \[)(..\/Feb\/[0-9:]+)( [0-9-]+\])( .[a-zA-Z]+ )([a-z0-9.]+)( [a-zA-Z0-9./]+. )([0-9]..)( [0-9-]+)"), line):
-        print (line)
+        #print (line)
         febnum += 1       
         feblog.write(line)
         
     if re.search(("([a-z]+)( - )[a-z.-]+( \[)(..\/Mar\/[0-9:]+)( [0-9-]+\])( .[a-zA-Z]+ )([a-z0-9.]+)( [a-zA-Z0-9./]+. )([0-9]..)( [0-9-]+)"), line):
-        print (line)        
+        #print (line)        
         marnum+= 1
         marlog.write(line)
     
     if re.search(("([a-z]+)( - )[a-z.-]+( \[)(..\/Apr\/[0-9:]+)( [0-9-]+\])( .[a-zA-Z]+ )([a-z0-9.]+)( [a-zA-Z0-9./]+. )([0-9]..)( [0-9-]+)"), line):
-        print (line)        
+        #print (line)        
         aprnum+= 1
         aprlog.write(line)
     
     if re.search(("([a-z]+)( - )[a-z.-]+( \[)(..\/May\/[0-9:]+)( [0-9-]+\])( .[a-zA-Z]+ )([a-z0-9.]+)( [a-zA-Z0-9./]+. )([0-9]..)( [0-9-]+)"), line):
-        print (line)        
+        #print (line)        
         maynum+= 1
         maylog.write(line)
     
     if re.search(("([a-z]+)( - )[a-z.-]+( \[)(..\/Jun\/[0-9:]+)( [0-9-]+\])( .[a-zA-Z]+ )([a-z0-9.]+)( [a-zA-Z0-9./]+. )([0-9]..)( [0-9-]+)"), line):
-        print (line)        
+        #print (line)        
         junnum+= 1
         junlog.write(line)
     
     if re.search(("([a-z]+)( - )[a-z.-]+( \[)(..\/Jul\/[0-9:]+)( [0-9-]+\])( .[a-zA-Z]+ )([a-z0-9.]+)( [a-zA-Z0-9./]+. )([0-9]..)( [0-9-]+)"), line):
-        print (line)        
+        #print (line)        
         julnum+= 1
         jullog.write(line)
     
     if re.search(("([a-z]+)( - )[a-z.-]+( \[)(..\/Aug\/[0-9:]+)( [0-9-]+\])( .[a-zA-Z]+ )([a-z0-9.]+)( [a-zA-Z0-9./]+. )([0-9]..)( [0-9-]+)"), line):
-        print (line)        
+        #print (line)        
         augnum+= 1
         auglog.write(line)
         
     
     if re.search(("([a-z]+)( - )[a-z.-]+( \[)(..\/Sep\/[0-9:]+)( [0-9-]+\])( .[a-zA-Z]+ )([a-z0-9.]+)( [a-zA-Z0-9./]+. )([0-9]..)( [0-9-]+)"), line):
-        print (line)        
+        #print (line)        
         sepnum+= 1
         seplog.write(line)
-      
+        
+    if re.search(("([a-z]+)( - )[a-z.-]+( \[)(..\/...\/[0-9:]+)( [0-9-]+\])( .[a-zA-Z]+ )([a-z0-9.]+)( [a-zA-Z0-9./]+. )(3[0-9]+)( [0-9-]+)"), line): 
+        cnt3 += 1
+            
+    if re.search(("([a-z]+)( - )[a-z.-]+( \[)(..\/...\/[0-9:]+)( [0-9-]+\])( .[a-zA-Z]+ )([a-z0-9.]+)( [a-zA-Z0-9./]+. )(4[0-9]+)( [0-9-]+)"), line): 
+        cnt4 += 1
+            
+    if re.search(("([a-z]+)( - )[a-z.-]+( \[)(..\/...\/[0-9:]+)( [0-9-]+\])( .[a-zA-Z]+ )([a-z0-9.]+)( [a-zA-Z0-9./]+. )(5[0-9]+)( [0-9-]+)"), line): 
+        cnt5 += 1        
+           
+       
 
     
     ##this answers number 1
-    linenum = linenum + 1
-    print (linenum)
+    #linenum = linenum + 1
+    #print (linenum)
     
 print ("oct num =" , octnum)
 print ("nov num =" , novnum)
@@ -141,3 +155,7 @@ seplog.close()
 octlog.close()
 novlog.close()
 declog.close()
+
+print ("there are ", cnt3, " 3XX errors")
+print ("there are ", cnt4, " 4XX errors")
+print ("there are ", cnt5, " 5XX errors")
