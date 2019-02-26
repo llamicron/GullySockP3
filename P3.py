@@ -2,33 +2,34 @@
 import re 
 ##urlretrieve ('https://s3.amazonaws.com/tcmg476/http_access_log', 'awslog.txt')
 
-linenum = 0 
-log = open("awslog.txt" , "r")
+
+log = open("testlog.txt" , "r")
 
 janlog = open("janlog.txt", "w+")
-#janlog.close()
+print ("janlog created")
 feblog = open("feblog.txt", "w+")
-#feblog.close()
+print ("janlog created")
 marlog = open("marlog.txt", "w+")
-#marlog.close()
+print ("janlog created")
 aprlog = open("aprlog.txt", "w+")
-#aprlog.close()
+print ("janlog created")
 maylog = open("maylog.txt", "w+")
-#maylog.close()
+print ("janlog created")
 junlog = open("junlog.txt", "w+")
-#junlog.close()
+print ("janlog created")
 jullog = open("jullog.txt", "w+")
-#jullog.close()
+print ("janlog created")
 auglog = open("auglog.txt", "w+")
-#auglog.close()
+print ("janlog created")
 seplog = open("seplog.txt", "w+")
-#seplog.close()
+print ("janlog created")
 octlog = open("octlog.txt", "w+")
-#octlog.close()
+print ("janlog created")
 novlog = open("novlog.txt", "w+")
-#novlog.close()
+print ("janlog created")
 declog = open("declog.txt", "w+")
-#declog.close()
+print ("janlog created")
+linenum = 0 
 octnum = 0
 novnum = 0
 decnum = 0
@@ -41,6 +42,7 @@ junnum = 0
 julnum = 0
 augnum = 0
 sepnum = 0
+error = 0
 cnt3 = 0
 cnt4 = 0
 cnt5 = 0
@@ -113,6 +115,9 @@ for line in log:
         #print (line)        
         sepnum+= 1
         seplog.write(line)
+    
+    else:
+        error += 1
         
         #counts the error codes
     if re.search(("([a-z]+)( - )[a-z.-]+( \[)(..\/...\/[0-9:]+)( [0-9-]+\])( .[a-zA-Z]+ )([a-z0-9.]+)( [a-zA-Z0-9./]+. )(3[0-9]+)( [0-9-]+)"), line): 
@@ -160,4 +165,5 @@ declog.close()
 print ("there are ", cnt3, " 3XX errors")
 print ("there are ", cnt4, " 4XX errors")
 print ("there are ", cnt5, " 5XX errors")
+print ("there are ", error, " unusable files")
 
