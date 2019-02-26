@@ -1,6 +1,6 @@
-##from urllib.request import urlretrieve
+from urllib.request import urlretrieve
 import re 
-##urlretrieve ('https://s3.amazonaws.com/tcmg476/http_access_log', 'awslog.txt')
+urlretrieve ('https://s3.amazonaws.com/tcmg476/http_access_log', 'awslog.txt')
 
 
 log = open("testlog.txt" , "r")
@@ -46,6 +46,8 @@ error = 0
 cnt3 = 0
 cnt4 = 0
 cnt5 = 0
+
+
 
 
 
@@ -166,5 +168,4 @@ declog.close()
 print ("there are ", cnt3, " 3XX errors")
 print ("there are ", cnt4, " 4XX errors")
 print ("there are ", cnt5, " 5XX errors")
-print ("there are ", error, " unusable files")
-
+print ("there are ", error, " unusable entries")
