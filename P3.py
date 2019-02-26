@@ -3,7 +3,7 @@ import re
 urlretrieve ('https://s3.amazonaws.com/tcmg476/http_access_log', 'awslog.txt')
 
 
-log = open("testlog.txt" , "r")
+log = open("awslog.txt" , "r")
 
 janlog = open("janlog.txt", "w+")
 print ("janlog created")
