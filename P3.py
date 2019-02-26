@@ -3,7 +3,7 @@ import re
 urlretrieve ('https://s3.amazonaws.com/tcmg476/http_access_log', 'awslog.txt')
 
 
-log = open("testlog.txt" , "r")
+log = open("awslog.txt" , "r")
 
 janlog = open("janlog.txt", "w+")
 print ("janlog created")
@@ -46,9 +46,6 @@ error = 0
 cnt3 = 0
 cnt4 = 0
 cnt5 = 0
-
-
-
 
 
 ## this goes through the lines, prints and counts them. 
