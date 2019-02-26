@@ -133,9 +133,10 @@ for line in log:
 
     
     ##this answers number 1
-    #linenum = linenum + 1
+    linenum = linenum + 1
     #print (linenum)
-    
+
+print ("The file has " , linenum, " log entries.")    
 print ("October has " , octnum, " log entries.")
 print ("November has " , novnum, " log entries.")
 print ("December has " , decnum, " log entries.")
