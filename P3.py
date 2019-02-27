@@ -1,6 +1,6 @@
-from urllib.request import urlretrieve
+#from urllib.request import urlretrieve
 import re 
-urlretrieve ('https://s3.amazonaws.com/tcmg476/http_access_log', 'awslog.txt')
+#urlretrieve ('https://s3.amazonaws.com/tcmg476/http_access_log', 'awslog.txt')
 
 
 log = open("awslog.txt" , "r")
@@ -30,6 +30,7 @@ print ("novlog created")
 declog = open("declog.txt", "w+")
 print ("declog created")
 linenum = 0 
+daycount = 0
 octnum = 0
 novnum = 0
 decnum = 0
@@ -128,10 +129,7 @@ for line in log:
     elif re.search(("([a-z]+)( - )[a-z.-]+( \[)(..\/...\/[0-9:]+)( [0-9-]+\])( .[a-zA-Z]+ )([a-z0-9.]+)( [a-zA-Z0-9./]+. )(5[0-9]+)( [0-9-]+)"), line): 
         cnt5 += 1        
            
-       
-
     
-    ##this answers number 1
     linenum = linenum + 1
     #print (linenum)
 
@@ -162,7 +160,39 @@ octlog.close()
 novlog.close()
 declog.close()
 
+print (" ")
 print ("there are ", cnt3, " 3XX errors")
 print ("there are ", cnt4, " 4XX errors")
 print ("there are ", cnt5, " 5XX errors")
 print ("there are ", error, " unusable entries")
+
+
+print (" ")
+entrybool = input("Would you like to find number of entries for a specific day? (y/n) ")
+print(entrybool)
+
+
+log = open("testlog.txt" , "r")
+if entrybool == 'y':
+    
+    print (" ")
+    entryyear = input("Please enter the year you want to look for (1994, 1995, etc)")
+    print (" ")
+    entrymonth = input("Please enter the month you want to look for (Jan, Oct, Dec, etc)")
+    print (" ")
+    entryday = input("Please enter the day you want to look for  (01, 09, 15, 31, etc)")
+    print (" ")
+    
+    for line in log:
+        
+        if re.search(("([a-z]+)( - )[a-z.-]+( \[)({}.{}.{})([0-9:]+ [0-9-]+\])( .[a-zA-Z]+ )([a-z0-9.]+)( [a-zA-Z0-9./]+. )([0-9]..)( [0-9-]+)").format(entryday, entrymonth, entryyear), line):
+            print (line)
+            daycount += 1
+            print (daycount)
+        print (" ")
+        print ("there are ", daycount, " lines you on the day you searched for")            
+elif entrybool == 'n':        
+    print ("Have a good day")
+
+else:
+    print ("Invalid entry, have a good day")
