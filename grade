@@ -1,0 +1,21 @@
+128/150 (85%)
+
+Lines to download file were commented out, but that's not a huge deal. Be sure to double check before committing.
+
+When counting month totals, you're doing one regex match per month. 12 separate checks gets verbose and there are easier ways to do it. The key here is capture groups, a regex feature. Instead of finding out if your regex pattern matches a string, it will return a value. You don't need to know the name of the month, only where in the string the month name is located. You can pull out the month name procedurally and write it to the correct log file. I've reduced that code so you can see what i'm talking about.
+
+When matching with regex, you don't need to match the entire line, only the part you care about. See the month count section I was just talking about.
+
+When counting things, it's a really good idea to use a dictionary. Here you have 12 different variables for each month, but it's cleaner and more functional to wrap them into a dictionary.
+
+You can do something similar with the log files. Find the month name procedurally then create the log files in a loop. That way you're not depending on the months being how you expect them to be. You never know when your input is going to be bogus.
+
+Aside from the urlretrieve line being commented out, the program did run fine up until it asked to count by days. I answered yes and it crashed. I like that you're getting user input to conditionally change the output of the program. Half of the challenge here is display all this data you've collected in a readable and friendly way. It crashed because it couldn't find "testlog.txt". My guess is that it's supposed to be "awslog.txt" but you forgot to change it back. Again, be sure to double check before committing.
+
+Just by looking over the code on the next part, I can see what you're getting at. Again, try not to hard code values into your regex pattern (or insert them from user input). Use capture groups to find values programatically.
+
+Your python looks good, you're following proper style conventions and it's laid out in a sensible way.
+
+You don't have a requirements.txt file, which is fine because you have no dependencies that aren't standard library (ie already installed). It's common convention to include it anyway and just leave it blank, but that's peanuts. Also, I would recommend adding "awslog.txt" to a .gitignore file to avoid committing it to Github. It's a big file. I've added that.
+
+(by the way, if you want to print an extra newline at the end of a print statement, add "\n" to the end of the string)
